@@ -1,8 +1,11 @@
+//create a paginator that takes an HTML list of students
+//and displays 10 students per page with buttons to 
+//access the students on other pages
+
 
 //Access the class of student-item and save the array, named $students, and remove the students from the page
 const $students = $(".student-item");
 const $studentContainer = $(".student-list");
-
 
 //selectStudent function passes the sliced array chunk (which carries 10 students info from the slice) and page number parameters
 const selectStudents = (studentArray, pageNumber) => {
@@ -38,11 +41,13 @@ const createButtons = (buttonCount) => {
     //join the array into one string
     return paginationButtons.join("");
 };
+
 const buttonClick = $e => {
     $e.click(event => {
         showStudents($students, event.target.innerText);
     });
 }
+
 //directions to order the loading of the page
 const pageLoad = () => {
     //load the $studentContainer after the createButtons function has finished producing the button Array 
